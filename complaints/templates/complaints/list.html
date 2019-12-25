@@ -1,0 +1,40 @@
+{% extends 'portal/base.html' %}
+{% block title %}My Complaints{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <br>
+        <h3 class="text-center text-black-50 font-weight-bold">My Complaints</h3>
+        <br>
+        {% if complaints %}
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+            <tr class="info">
+                <td>Date</td>
+                <td>Status</td>
+                <td>Category</td>
+                <td>Description</td>
+                <td>Delete</td>
+            </tr>
+            {% for complaint in complaints %}
+                <tr>
+                    <td><a class="text-default" href="{{ complaint.get_absolute_url }}">{{ complaint.get_date }}</a></td>
+                    <td>{{ complaint.status }}</td>
+                    <td>{{ complaint.category }}</td>
+                    <td>{{ complaint.get_description_display }}</td>
+                    <td>
+                        <form action="{{ complaint.get_delete_url }}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <button type="submit" class="btn waves-light tz-icnbtn"><i class="fas fa-trash tz-trashicn"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+            </div>
+        {% else %}
+            <h4 class="text-default text-center font-weight-bold">No Complaint Yet</h4>
+        {% endif %}
+        <br>
+        <a href="{% url "complaints:add" %}"><button class="btn btn-default">Add Complaint <i class="fa fa-plus"></i></button></a>
+    </div>
+{% endblock %}

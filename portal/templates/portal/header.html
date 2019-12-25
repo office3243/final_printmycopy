@@ -1,0 +1,58 @@
+{#    {% load static %}#}
+{#    <div>#}
+{#        <div class="tz-topmenu">#}
+{#           <div class="tz-header col-md-6">#}
+{#              <a href="http://www.printmycopy.com" class="tz-header-name">#}
+{#                PrintMyCopy#}
+{#              </a>#}
+{#           </div>#}
+{#          <ul class="nav tz-ul col-md-6" role="tablist">#}
+{##}
+{#            <li class="nav-items tz-li">#}
+{#                <a class="nav-link waves-light tz-linkbtn" id="upload-tab" href="{% url "transactions:file_add" %}" >#}
+{#                    <i class="fas fa-upload"></i>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li class="nav-items tz-li">#}
+{#                <a class="nav-link waves-light tz-linkbtn" id="transaction-tab" href="{% url "transactions:list" %}">#}
+{#                    <i class="fas fa-history"></i>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li class="nav-items tz-li"><a class="nav-link waves-light tz-linkbtn" id="account-tab" href="{% url "wallets:view" %}"><i class="fas fa-wallet"></i></a></li>#}
+{#            <li class="nav-items tz-li dropdown">#}
+{#                <a class="nav-link waves-light tz-linkbtn dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></a>#}
+{#                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">#}
+{#                    <a class="dropdown-item" href="{% url "accounts:profile_update" %}">Profile</a>#}
+{#                    <a class="dropdown-item" href="{% url "accounts:password_change" %}">Change Password</a>#}
+{#                    <a class="dropdown-item" href="{% url "complaints:list" %}">Complaints</a>#}
+{#                    <a class="dropdown-item" href="{% url "accounts:logout" %}">Logout</a>#}
+{#                </div>#}
+{#            </li>#}
+{#          </ul>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{##}
+{##}
+
+    {% load static %}
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="{% url "accounts:profile_update" %}">Profile</a></li>
+  <li><a href="{% url "accounts:password_change" %}">Change Password</a></li>
+  <li class="divider"></li>
+  <li><a href="{% url "accounts:logout" %}">Logout</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper container">
+    <a href="{% url "portal:home" %}" class="brand-logo">Printmycopy</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="sass.html">Transactions</a></li>
+      <li><a href="badges.html">Wallet</a></li>
+      <li><a href="{% url "complaints:list" %}">Complaints</a></li>
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,27 @@
+{% extends "portal/base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="card">
+            <div class="card-panel teal lighten-2 white-text">
+                Login
+            </div>
+
+            <div class="card-content">
+                <form method="post">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
